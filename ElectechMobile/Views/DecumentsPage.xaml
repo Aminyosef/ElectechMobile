@@ -18,6 +18,20 @@
             <Button x:Name="atexRv1" Clicked="atexRv1_Clicked" Text="IRINOX ATEX Rev1" Background="SaddleBrown" FontSize="Medium"/>
             <Button x:Name="atexRv2" Clicked="atexRv2_Clicked" Text="IRINOX ATEX Rev2" Background="SaddleBrown" FontSize="Medium"/>
             <Button x:Name="azDecl" Clicked="azDecl_Clicked" Text="IRINOX AZ IP66 Certificate" Background="SaddleBrown" FontSize="Medium"/>
+            <Button x:Name="brescat" Clicked="brescat_Clicked" Text="SAFYBOX BRES Catalog" Background="LightSkyBlue" FontSize="Medium"/>
+            <Button x:Name="artcat" Clicked="artcat_Clicked" Text="SAFYBOX ART Catalog" Background="LightSkyBlue" FontSize="Medium"/>
+            <Button x:Name="brescer" Clicked="brescer_Clicked" Text="SAFYBOX BRES IEC62208" Background="LightSkyBlue" FontSize="Medium"/>
+            <Button x:Name="safyastar" Clicked="safyastar_Clicked" Text="SAFYBOX ASTAR Certificate" Background="LightSkyBlue" FontSize="Medium"/>
+            <Button x:Name="safytest" Clicked="safytest_Clicked" Text="SAFYBOX Test Report" Background="LightSkyBlue" FontSize="Medium"/>
+            <Button x:Name="verextraLed" Clicked="verextraLed_Clicked" Text="VYRTYCH EXTRA-N-LED" Background="IndianRed" FontSize="Medium"/>
+            <Button x:Name="verextrAtEX" Clicked="verextrAtEX_Clicked" Text="VYRTYCH EXTRA-N-LED ATEX" Background="IndianRed" FontSize="Medium"/>
+            <Button x:Name="vergRYLed" Clicked="vergRYLed_Clicked" Text="VYRTYCH GREY-N-LED" Background="IndianRed" FontSize="Medium"/>
+            <Button x:Name="verGRYAtEX" Clicked="verGRYAtEX_Clicked" Text="VYRTYCH GREY-N-LED ATEX" Background="IndianRed" FontSize="Medium"/>
+            <Button x:Name="verksn" Clicked="verksn_Clicked" Text="VYRTYCH FLOODLIGHT" Background="IndianRed" FontSize="Medium"/>
+            <Button x:Name="verknAtEX" Clicked="verknAtEX_Clicked" Text="VYRTYCH FLOODLIGHT ATEX" Background="IndianRed" FontSize="Medium"/>
+
+            <Button x:Name="adel" Clicked="adel_Clicked" Text="IRINOX AZ IP66 Certificate" Background="GreenYellow" FontSize="Medium"/>
+
             <Button x:Name="alfBS" Clicked="alfBS_Clicked" Text="Alf Switches BS Catlog" FontSize="Medium"/>
             <Button x:Name="alfEu" Clicked="alfEu_Clicked" Text="Alf Switches Euro Catlog" FontSize="Medium"/>
         </VerticalStackLayout>

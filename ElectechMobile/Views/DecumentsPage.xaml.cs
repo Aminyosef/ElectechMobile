@@ -93,4 +93,75 @@ public partial class DecumentsPage : ContentPage
         Navigation.PushAsync(new PDFViewerFeatures("EnglishEU.pdf"));
 
     }
+
+    private void adel_Clicked(object sender, EventArgs e)
+    {
+
+    }
+
+    private void brescat_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("BRES2017.pdf"));
+
+    }
+
+    private void artcat_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("artcatalogue.pdf"));
+
+    }
+
+    private void brescer_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("BRESIEC62208.pdf"));
+
+    }
+
+    private void safyastar_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("ASTARUVResistance.pdf"));
+
+    }
+
+    private void safytest_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("RIGIDEZDIELECTRICAENVOLVENTES_eng.pdf"));
+
+    }
+
+    private void verextraLed_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("ks_en_EXTRA-N-LEDNEW.pdf"));
+
+    }
+
+    private void verextrAtEX_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("atex_en_extra-n-led.pdf"));
+
+    }
+
+    private void vergRYLed_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("ks_en_GREY-LED.pdf"));
+
+    }
+
+    private void verGRYAtEX_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("atex_en_grey-n-led.pdf"));
+
+    }
+
+    private void verknAtEX_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("ENG_ATEX_K-N.pdf"));
+        
+    }
+
+    private void verksn_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("ks_en_k-2-n_k-3-n.pdf"));
+
+    }
 }
