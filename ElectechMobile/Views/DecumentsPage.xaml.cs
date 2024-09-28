@@ -1,3 +1,5 @@
+using System.Xml.Linq;
+
 namespace ElectechMobile.Views;
 
 public partial class DecumentsPage : ContentPage
@@ -58,6 +60,37 @@ public partial class DecumentsPage : ContentPage
     private void az_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new PDFViewerFeatures("NEWcatalougeAZ.pdf"));
+
+    }
+
+    private void atexRv1_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("newTÜVIT16ATEX001URev1.pdf"));
+
+    }
+
+    private void atexRv2_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("TÜV_IT_16_ATEX_023QRev2.pdf"));
+       
+
+    }
+
+    private void azDecl_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("DECLARATIONOFCONFORMITY_AZ_SD_IP66.pdf"));
+
+    }
+
+    private void alfBS_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("EnglishBR.pdf"));
+
+    }
+
+    private void alfEu_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("EnglishEU.pdf"));
 
     }
 }

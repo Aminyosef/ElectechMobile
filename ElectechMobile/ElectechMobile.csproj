@@ -88,7 +88,6 @@
 	  <EmbeddedResource Include="Assets\MetalEnclosuresP66Catalogue.pdf" />
 	  <EmbeddedResource Include="Assets\NEWcatalougeAZ.pdf" />
 	  <EmbeddedResource Include="Assets\newTÜVIT16ATEX001URev1.pdf" />
-	  <EmbeddedResource Include="Assets\pdf_succinctly.pdf" />
 	  <EmbeddedResource Include="Assets\scheda_ADH_en.pdf" />
 	  <EmbeddedResource Include="Assets\SWITCHandJUNCTIONBOX.pdf" />
 	  <EmbeddedResource Include="Assets\TÜV_IT_16_ATEX_023QRev2.pdf" />
@@ -116,10 +115,6 @@
 	<!-- Build Properties must be defined within these property groups to ensure successful publishing
        to the Mac App Store. See: https://aka.ms/maui-publish-app-store#define-build-properties-in-your-project-file -->
  
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
-    <AndroidPackageFormat>apk</AndroidPackageFormat>
-  </PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
 		<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
