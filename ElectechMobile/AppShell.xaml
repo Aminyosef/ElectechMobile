@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ElectechMobile.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ElectechMobile"
+    Shell.FlyoutBehavior="Flyout">
+
+
+
+    <ShellContent Title = "Home" ContentTemplate = "{DataTemplate local:Views.HomeScreenPage}" Route ="Views.HomeScreenPage" />
+    <ShellContent Title = "Products Decuments" ContentTemplate = "{DataTemplate local:Views.DecumentsPage}" Route ="Views.DecumentsPage" />
+    <ShellContent Title = "DataGrid" ContentTemplate = "{DataTemplate local:DataGridFeatures}" Route ="DataGridFeatures" />
+    <ShellContent Title = "Circular Charts" ContentTemplate = "{DataTemplate local:CircularChartsFeatures}" Route ="CircularChartsFeatures" />
+
+
+</Shell>

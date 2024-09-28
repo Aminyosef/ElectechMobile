@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ElectechMobile.Views.DecumentsPage"
+                         Title="Products Decuments">
+    <VerticalStackLayout Padding="10" Spacing="5">
+        <Button Clicked="Button_Clicked" Text="Alfanar Service Box IP66 Catalog" BorderColor="Blue"/>
+        <Button x:Name="fanIp66Cer" Clicked="fanIp66Cer_Clicked" Text="Alfanar Service Box IP66 Certificate" BorderColor="Blue"/>
+        <Button x:Name="fanLoadCent" Clicked="fanLoadCent_Clicked" Text="Alfanar Load Center LD Standard" BorderColor="Blue"/>
+        <Button x:Name="fanCB" Clicked="fanCB_Clicked" Text="Alfanar CIRCUIT BREAKER" BorderColor="Blue"/>
+        <Button x:Name="fanSw" Clicked="fanSw_Clicked" Text="Alfanar Switch and Junction Box" BorderColor="Blue"/>
+        <Button x:Name="fanWir" Clicked="fanWir_Clicked" Text="Alfanar AWG Wire" BorderColor="Blue"/>
+        <Button x:Name="ekoCat" Clicked="ekoCat_Clicked" Text="IRINOX EKO Catalog" Background="SaddleBrown"/>
+        <Button x:Name="adh" Clicked="adh_Clicked" Text="IRINOX ADH Catalog" Background="SaddleBrown"/>
+        <Button x:Name="az" Clicked="az_Clicked" Text="IRINOX AZ Catalog" Background="SaddleBrown"/>
+        <Button Text="IRINOX AZ Catalog" Background="SaddleBrown"/>
+        <Button Text="IRINOX AZ Catalog" Background="SaddleBrown"/>
+    </VerticalStackLayout>
+</ContentPage>

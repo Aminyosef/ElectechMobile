@@ -1,0 +1,133 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0-android</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
+
+		<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifer>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+		<!-- ex. <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>ElectechMobile</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>ElectechMobile</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.Elc.ElectechMobile</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Assets\1P66ce_certificate_irinox.pdf" />
+	  <None Remove="Assets\AMCBcatalogue.pdf" />
+	  <None Remove="Assets\AWG.pdf" />
+	  <None Remove="Assets\CompactCabinet.pdf" />
+	  <None Remove="Assets\DECLARATIONOFCONFORMITY_AZ_SD_IP66.pdf" />
+	  <None Remove="Assets\EKO-en.pdf" />
+	  <None Remove="Assets\EnglishBR.pdf" />
+	  <None Remove="Assets\EnglishEU.pdf" />
+	  <None Remove="Assets\IP66NEW.pdf" />
+	  <None Remove="Assets\LD_catalog.pdf" />
+	  <None Remove="Assets\MetalEnclosuresP66Catalogue.pdf" />
+	  <None Remove="Assets\NEWcatalougeAZ.pdf" />
+	  <None Remove="Assets\newTÜVIT16ATEX001URev1.pdf" />
+	  <None Remove="Assets\scheda_ADH_en.pdf" />
+	  <None Remove="Assets\SWITCHandJUNCTIONBOX.pdf" />
+	  <None Remove="Assets\TÜV_IT_16_ATEX_023QRev2.pdf" />
+	  <None Remove="Resources\Images\elc.jpeg" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="Assets\1P66ce_certificate_irinox.pdf" />
+	  <EmbeddedResource Include="Assets\AMCBcatalogue.pdf" />
+	  <EmbeddedResource Include="Assets\AWG.pdf" />
+	  <EmbeddedResource Include="Assets\CompactCabinet.pdf" />
+	  <EmbeddedResource Include="Assets\DECLARATIONOFCONFORMITY_AZ_SD_IP66.pdf" />
+	  <EmbeddedResource Include="Assets\EKO-en.pdf" />
+	  <EmbeddedResource Include="Assets\EnglishBR.pdf" />
+	  <EmbeddedResource Include="Assets\EnglishEU.pdf" />
+	  <EmbeddedResource Include="Assets\IP66NEW.pdf" />
+	  <EmbeddedResource Include="Assets\LD_catalog.pdf" />
+	  <EmbeddedResource Include="Assets\MetalEnclosuresP66Catalogue.pdf" />
+	  <EmbeddedResource Include="Assets\NEWcatalougeAZ.pdf" />
+	  <EmbeddedResource Include="Assets\newTÜVIT16ATEX001URev1.pdf" />
+	  <EmbeddedResource Include="Assets\pdf_succinctly.pdf" />
+	  <EmbeddedResource Include="Assets\scheda_ADH_en.pdf" />
+	  <EmbeddedResource Include="Assets\SWITCHandJUNCTIONBOX.pdf" />
+	  <EmbeddedResource Include="Assets\TÜV_IT_16_ATEX_023QRev2.pdf" />
+	</ItemGroup>
+        <ItemGroup>
+	   <MauiAsset Include="Project_Readme.html" />
+	</ItemGroup>
+	
+	 <ItemGroup>
+                <PackageReference Include="Syncfusion.Maui.Datagrid" Version="27.1.50" />
+    <PackageReference Include="Syncfusion.Maui.PdfViewer" Version="27.1.50" />
+    <PackageReference Include="Syncfusion.Maui.ProgressBar" Version="27.1.50" />
+    <PackageReference Include="Syncfusion.Maui.Charts" Version="27.1.50" />
+    <PackageReference Include="Syncfusion.Maui.Core" Version="27.1.50" />
+         </ItemGroup>
+	
+	 <ItemGroup>
+	   <MauiXaml Update="Views\DecumentsPage.xaml">
+	     <Generator>MSBuild:Compile</Generator>
+	   </MauiXaml>
+	   <MauiXaml Update="Views\HomeScreenPage.xaml">
+	     <Generator>MSBuild:Compile</Generator>
+	   </MauiXaml>
+	 </ItemGroup>
+	<!-- Build Properties must be defined within these property groups to ensure successful publishing
+       to the Mac App Store. See: https://aka.ms/maui-publish-app-store#define-build-properties-in-your-project-file -->
+ 
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
+  </PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+		<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+	</PropertyGroup>
+
+	<!-- Release configuration -->
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
+		<AndroidPackageFormat>apk</AndroidPackageFormat>
+		<AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
+	</PropertyGroup>
+</Project>
