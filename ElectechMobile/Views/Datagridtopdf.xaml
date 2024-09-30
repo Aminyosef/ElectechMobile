@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             x:Class="ElectechMobile.Views.Datagridtopdf"
+             Title="كشف حساب عميل">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*" Margin="10">
+            <Label Grid.Row="0" FontSize="Medium" x:Name="custName" HorizontalOptions="EndAndExpand" TextColor="Blue"/>
+            <syncfusion:SfDataGrid x:Name="dataGrid" Grid.Row="1"
+                                   HorizontalOptions="CenterAndExpand"
+                               AutoGenerateColumnsMode="None"
+                               ColumnWidthMode="Fill"
+                               SelectionMode="Single"
+                               SortingMode="Multiple"
+                               ShowSortNumbers="True"
+                               AllowTriStateSorting="True"
+                              
+                         >
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="salNo" HeaderText="مبيع" Width="80"/>
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="rslNo" HeaderText="مرتجع" Width="70"/>
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="amount" HeaderText="المبلغ" Width="100" Format="N0"/>
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="date" HeaderText="التاريخ" Width="110"/>
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -10,8 +10,8 @@
 
     <ShellContent Title = "Home" ContentTemplate = "{DataTemplate local:Views.HomeScreenPage}" Route ="Views.HomeScreenPage" />
     <ShellContent Title = "Products Decuments" ContentTemplate = "{DataTemplate local:Views.DecumentsPage}" Route ="Views.DecumentsPage" />
-    <ShellContent Title = "DataGrid" ContentTemplate = "{DataTemplate local:DataGridFeatures}" Route ="DataGridFeatures" />
-    <ShellContent Title = "Circular Charts" ContentTemplate = "{DataTemplate local:CircularChartsFeatures}" Route ="CircularChartsFeatures" />
+    <ShellContent Title = "Customers" ContentTemplate = "{DataTemplate local:Views.CustListPage}" Route ="Views.CustListPage" />
+    <ShellContent Title = "Sales" ContentTemplate = "{DataTemplate local:Views.SalPage}" Route ="Views.SalPage" />
 
 
 </Shell>

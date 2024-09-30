@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             x:Class="ElectechMobile.Views.OneSalePage"
+             Title="اذن استلام">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,Auto,Auto" Margin="10">
+            <Label Grid.Row="0" FontSize="Large" x:Name="salNo" HorizontalOptions="CenterAndExpand" />
+            <Label Grid.Row="1" FontSize="Medium" x:Name="custName" HorizontalOptions="CenterAndExpand" TextColor="Blue"/>
+
+            <syncfusion:SfDataGrid x:Name="dataGrid" Grid.Row="2"
+                              HorizontalOptions="CenterAndExpand"
+                          AutoGenerateColumnsMode="None"
+                          ColumnWidthMode="Fill"
+                          SelectionMode="Single"
+                          SortingMode="Multiple"
+                          ShowSortNumbers="True"
+                          AllowTriStateSorting="True">
+
+
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="QtyOut" HeaderText="الكمية" Width="80"/>
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="ProductName" HeaderText="الصنف" Width="270"/>
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

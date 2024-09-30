@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+              xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="ElectechMobile.Views.CustListPage"
+             Title="Customer List">
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*">
+            <HorizontalStackLayout Grid.Row="0">
+                <SearchBar x:Name="filterText" TextChanged="filterText_TextChanged" Placeholder="بحث ..." WidthRequest="300" Margin="10" HeightRequest="50"
+                       IsVisible="true">
+
+                </SearchBar>
+
+            </HorizontalStackLayout>
+            <syncfusion:SfDataGrid x:Name="dataGrid" Grid.Row="1"
+                                   HorizontalOptions="EndAndExpand"
+                               AutoGenerateColumnsMode="None"
+                               ColumnWidthMode="Fill"
+                               SelectionMode="Single"
+                               SortingMode="Multiple"
+                               ShowSortNumbers="True"
+                               AllowTriStateSorting="True"
+                                   SelectionChanged="dataGrid_SelectionChanged">
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="custName" HeaderText="Customer Name"/>
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
+            <core:SfBusyIndicator x:Name="busyIndicator"
+              IsRunning="True"
+              Title="جاري تحميل البيانات ...."
+              TitleSpacing="30"
+              TitlePlacement="Bottom"
+              IndicatorColor="Blue"
+              AnimationType="Cupertino"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

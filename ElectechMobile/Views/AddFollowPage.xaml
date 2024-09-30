@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="ElectechMobile.Views.AddFollowPage"
+                         Title="اضافة زيارة جديدة للعميل">
+    <VerticalStackLayout Spacing="10">
+        <Label 
+            x:Name="lbCust"
+            VerticalOptions="Center" 
+            HorizontalOptions="CenterAndExpand" 
+            Margin="10"/>
+        <HorizontalStackLayout HorizontalOptions="Center">
+
+            <inputLayout:SfTextInputLayout x:Name="TxtFlow" 
+                                           Hint="تفاصيل زيارة العميل" 
+                                           MinimumWidthRequest="300"
+                                           MinimumHeightRequest="400"
+                                           ContainerBackground="White"
+                                           >
+                <Entry />
+            </inputLayout:SfTextInputLayout>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Button x:Name="AddFlowBton" Clicked="AddFlowBton_Clicked" Text="حـفـظ" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

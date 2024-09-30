@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ElectechMobile.Views.CustomerDisplayPage"
+                   Title="Customer Info">
+    <ScrollView>
+        <VerticalStackLayout Spacing="2" HorizontalOptions="EndAndExpand" Padding="27,5,5,5">
+            <!-- اسم العميل -->
+            <HorizontalStackLayout Padding="5" Spacing="10" HorizontalOptions="EndAndExpand">
+                <Label x:Name="Name" TextDecorations="Underline" TextColor="Blue"  FontSize="Medium" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+            <!--رقم العميل-->
+            <HorizontalStackLayout Padding="5" Spacing="10" HorizontalOptions="EndAndExpand">
+                <Label x:Name="CustId" FontSize="Medium" FontAttributes="Bold"/>
+                <Label FontSize="Medium" Text="رقم العميل:" />
+            </HorizontalStackLayout>
+            <!-- نوع العميل -->
+            <HorizontalStackLayout Padding="5" Spacing="10" HorizontalOptions="EndAndExpand">
+                <Label x:Name="CustKind" FontSize="Medium" FontAttributes="Bold"/>
+                <Label FontSize="Medium" Text="نوع العميل:" />
+            </HorizontalStackLayout>
+
+            <!-- المحمول -->
+            <HorizontalStackLayout Padding="5" Spacing="10" HorizontalOptions="EndAndExpand">
+                <Label x:Name="Mobile" FontSize="Medium" FontAttributes="Bold"/>
+                <Label FontSize="Medium" Text="المحمول:" />
+            </HorizontalStackLayout>
+
+            <!-- التليفون -->
+            <HorizontalStackLayout Padding="5" Spacing="10" HorizontalOptions="EndAndExpand">
+                <Label x:Name="Phone"  FontSize="Medium" FontAttributes="Bold"/>
+                <Label FontSize="Medium" Text="التليفون:" />
+            </HorizontalStackLayout>
+
+            <!-- الايميل -->
+            <HorizontalStackLayout Padding="5" Spacing="10" HorizontalOptions="EndAndExpand">
+                <Label x:Name="Email"  FontSize="Medium" FontAttributes="Bold"/>
+                <Label FontSize="Medium" Text="الايميل:" />
+            </HorizontalStackLayout>
+
+            <!-- الملف الضريبي -->
+            <HorizontalStackLayout Padding="5" Spacing="10" HorizontalOptions="EndAndExpand">
+                <Label x:Name="TaxNo"  FontSize="Medium" FontAttributes="Bold"/>
+                <Label FontSize="Medium" Text="الملف الضريبي:"  />
+            </HorizontalStackLayout>
+
+            <!-- العنوان -->
+            <HorizontalStackLayout Padding="5" Spacing="10" HorizontalOptions="EndAndExpand">
+                <Label x:Name="Address"   FontSize="Medium" FontAttributes="Bold"/>
+                <Label FontSize="Medium" Text="العنوان:" />
+            </HorizontalStackLayout>
+
+            <!-- مهندس المبيعات -->
+            <HorizontalStackLayout Padding="5" Spacing="10" HorizontalOptions="EndAndExpand">
+                <Label x:Name="EngName"   FontSize="Medium" TextColor="Red" FontAttributes="Bold"/>
+                <Label FontSize="Medium" Text="مهندس المبيعات:"  />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Padding="5" Spacing="5" HorizontalOptions="EndAndExpand">
+
+                <Button x:Name="ExportButton" Clicked="ExportButton_Clicked" Text="كشف حساب العميل" WidthRequest="120"/>
+                <Button x:Name="FollowButton" Clicked="FollowButton_Clicked" Text="متابعات العميل"  WidthRequest="120"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Padding="5" Spacing="10" HorizontalOptions="EndAndExpand">
+
+                <Button x:Name="NewVistBtn" Clicked="NewVistBtn_Clicked" Text="اضافة زيارة جديده للعميل" WidthRequest="245"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
