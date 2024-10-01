@@ -35,6 +35,12 @@ namespace ElectechMobile.Services
                 return Array.Empty<sal>(); // Return an empty array on error
             }
         }
+        public static async Task<sal[]> Search(string text)
+        {
+            string baseUrl = $"http://amingomaa-001-site24.dtempurl.com/api/Sal/SearchSal/{text}";
+            var response = await Client.GetStringAsync(baseUrl);
+            return JsonConvert.DeserializeObject<sal[]>(response);
+        }
         public static async Task<SaleDet[]> GetSalId(int id, string? url = null)
         {
             // Set the default URL if no custom URL is provided

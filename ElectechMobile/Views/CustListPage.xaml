@@ -29,7 +29,6 @@
                 </syncfusion:SfDataGrid.Columns>
             </syncfusion:SfDataGrid>
             <core:SfBusyIndicator x:Name="busyIndicator"
-              IsRunning="True"
               Title="جاري تحميل البيانات ...."
               TitleSpacing="30"
               TitlePlacement="Bottom"

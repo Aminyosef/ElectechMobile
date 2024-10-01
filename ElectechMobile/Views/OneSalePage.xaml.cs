@@ -5,23 +5,57 @@ namespace ElectechMobile.Views;
 
 public partial class OneSalePage : ContentPage
 {
+    private int _saleId;
+    public SaleDet[] saleDets { get; private set; }
+    public sal[] sales { get; private set; }
+
     public OneSalePage(int id)
     {
         InitializeComponent();
         Application.Current.UserAppTheme = AppTheme.Light;
-        InitCustomer(id);
-
+        _saleId = id;
     }
-    public SaleDet[] saleDets { get; private set; }
-    public sal[] sales { get; private set; }
 
-    public async void InitCustomer(int id)
+    protected override async void OnAppearing()
     {
-        sales = await Salservice.GetAll();
-        var cust = sales.FirstOrDefault(x => x.id == id).custName;
-        salNo.Text = id.ToString();
-        custName.Text = cust.ToString();
-        saleDets = await Salservice.GetSalId(id);
-        dataGrid.ItemsSource = saleDets.ToList();
+        base.OnAppearing();
+        await InitializeSaleData();
+    }
+
+    private async Task InitializeSaleData()
+    {
+        try
+        {
+            sales = await Salservice.GetAll();
+            if (sales == null || sales.Length == 0)
+            {
+                await DisplayAlert("Error", "Failed to load sales data", "OK");
+                return;
+            }
+
+            var sale = sales.FirstOrDefault(x => x.id == _saleId);
+            if (sale == null)
+            {
+                await DisplayAlert("Error", $"Sale with ID {_saleId} not found", "OK");
+                return;
+            }
+
+            salNo.Text = _saleId.ToString();
+            custName.Text = sale.custName?.ToString() ?? "N/A";
+
+            saleDets = await Salservice.GetSalId(_saleId);
+            if (saleDets == null)
+            {
+                await DisplayAlert("Error", "Failed to load sale details", "OK");
+                return;
+            }
+
+            dataGrid.ItemsSource = saleDets.ToList();
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
+            Console.WriteLine($"Error in InitializeSaleData: {ex}");
+        }
     }
 }

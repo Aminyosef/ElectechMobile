@@ -40,7 +40,7 @@ public partial class CustFollw : ContentPage
                         });
                     }
 
-                    listView.ItemsSource = followItems;
+                    listView.ItemsSource = followItems.Last(10);
                 }
             }
         }

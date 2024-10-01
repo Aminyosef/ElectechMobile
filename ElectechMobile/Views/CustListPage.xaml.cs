@@ -9,33 +9,10 @@ public partial class CustListPage : ContentPage
 	{
 		InitializeComponent();
         Application.Current.UserAppTheme = AppTheme.Light;
-        InitCustomers();
     }
-    public Customer[] Customers { get; private set; }
-    public async void InitCustomers()
+    private async void filterText_TextChanged(object sender, TextChangedEventArgs e)
     {
-        busyIndicator.IsRunning = true;
-
-        try
-        {
-            // Perform your loading operations here
-            await Task.Delay(4000); // Simulating a 3-second loading time
-
-            Customers = await ApiService<Customer>.GetAll();
-            dataGrid.ItemsSource = Customers;
-        }
-        finally
-        {
-            // Hide the busy indicator when loading is complete
-            busyIndicator.IsRunning = false;
-        }
-
-
-    }
-    private void filterText_TextChanged(object sender, TextChangedEventArgs e)
-    {
-        string? text = string.IsNullOrEmpty(e.NewTextValue) ? null : e.NewTextValue;
-        dataGrid.ItemsSource = Customers.Where(x => x.custName.Contains(text ?? x.custName, StringComparison.OrdinalIgnoreCase));
+        dataGrid.ItemsSource = await CustService.GetCustomersByName(e.NewTextValue);
     }
 
     private async void dataGrid_SelectionChanged(object sender, Syncfusion.Maui.DataGrid.DataGridSelectionChangedEventArgs e)
