@@ -56,4 +56,14 @@ public partial class CustomerDisplayPage : ContentPage
             await Navigation.PushAsync(new AddFollowPage(custId));
         }
     }
+
+    private async void FirstFol_Clicked(object sender, EventArgs e)
+    {
+        int custId;
+        if (int.TryParse(CustId.Text.Trim(), out custId))
+        {
+            await Navigation.PushAsync(new FirstVistPage(custId));
+        }
+
+    }
 }

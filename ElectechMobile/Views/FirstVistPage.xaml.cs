@@ -4,12 +4,12 @@ using ElectechMobile.Viewmodel;
 
 namespace ElectechMobile.Views;
 
-public partial class CustFollw : ContentPage
+public partial class FirstVistPage : ContentPage
 {
-    public CustFollw(int id)
-    {
-        InitializeComponent();
-        Application.Current.UserAppTheme = AppTheme.Light;
+	public FirstVistPage(int id)
+	{
+		InitializeComponent();
+	  Application.Current.UserAppTheme = AppTheme.Light;
         InitCustomerAsync(id);
 
     }
@@ -21,7 +21,7 @@ public partial class CustFollw : ContentPage
         try
         {
             var cust = await ApiService<Customer>.GetById(id);
-            var follows = await ApiService<CustomerFlow>.GetFolwByCustId(id);
+            var follows = await ApiService<CustomerFlow>.GetFirstFolwByCustId(id);
 
             if (cust != null)
             {

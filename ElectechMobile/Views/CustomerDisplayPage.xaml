@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ElectechMobile.Views.CustomerDisplayPage"
                    Title="Customer Info">
-    <ScrollView>
-        <VerticalStackLayout Spacing="2" HorizontalOptions="EndAndExpand" Padding="27,5,5,5">
+    <ScrollView Padding="5">
+        <VerticalStackLayout Spacing="2" HorizontalOptions="Center" Padding="5">
             <!-- اسم العميل -->
-            <HorizontalStackLayout Padding="5" Spacing="10" HorizontalOptions="EndAndExpand">
+            <HorizontalStackLayout Padding="5" Spacing="10" HorizontalOptions="Center">
                 <Label x:Name="Name" TextDecorations="Underline" TextColor="Blue"  FontSize="Medium" FontAttributes="Bold"/>
             </HorizontalStackLayout>
             <!--رقم العميل-->
@@ -55,14 +55,14 @@
                 <Label x:Name="EngName"   FontSize="Medium" TextColor="Red" FontAttributes="Bold"/>
                 <Label FontSize="Medium" Text="مهندس المبيعات:"  />
             </HorizontalStackLayout>
-            <HorizontalStackLayout Padding="5" Spacing="5" HorizontalOptions="EndAndExpand">
-
-                <Button x:Name="ExportButton" Clicked="ExportButton_Clicked" Text="كشف حساب العميل" WidthRequest="120"/>
-                <Button x:Name="FollowButton" Clicked="FollowButton_Clicked" Text="متابعات العميل"  WidthRequest="120"/>
+            <HorizontalStackLayout Padding="5" Spacing="1" HorizontalOptions="Center">
+                <Button x:Name="NewVistBtn" Clicked="NewVistBtn_Clicked" Text="زيارة جديده" WidthRequest="90"/>
+                <Button x:Name="FirstFol" Clicked="FirstFol_Clicked" Text="اول زيارة" WidthRequest="90"/>
+                <Button x:Name="FollowButton" Clicked="FollowButton_Clicked" Text="متابعات"  WidthRequest="90"/>
             </HorizontalStackLayout>
-            <HorizontalStackLayout Padding="5" Spacing="10" HorizontalOptions="EndAndExpand">
+            <HorizontalStackLayout Padding="5" Spacing="1" HorizontalOptions="EndAndExpand">
+                <Button x:Name="ExportButton" Clicked="ExportButton_Clicked" Text="كشف حساب العميل" WidthRequest="272"/>
 
-                <Button x:Name="NewVistBtn" Clicked="NewVistBtn_Clicked" Text="اضافة زيارة جديده للعميل" WidthRequest="245"/>
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>

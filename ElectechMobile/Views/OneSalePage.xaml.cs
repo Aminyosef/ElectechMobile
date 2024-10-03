@@ -1,5 +1,6 @@
 using ElectechMobile.Model;
 using ElectechMobile.Services;
+using Syncfusion.Maui.Core;
 
 namespace ElectechMobile.Views;
 
@@ -24,8 +25,11 @@ public partial class OneSalePage : ContentPage
 
     private async Task InitializeSaleData()
     {
+        busyIndicator.IsRunning = true;
+
         try
         {
+            await Task.Delay(3000);
             sales = await Salservice.GetAll();
             if (sales == null || sales.Length == 0)
             {
@@ -56,6 +60,10 @@ public partial class OneSalePage : ContentPage
         {
             await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
             Console.WriteLine($"Error in InitializeSaleData: {ex}");
+        }
+        finally
+        {
+            busyIndicator.IsRunning = false;
         }
     }
 }
