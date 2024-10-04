@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ElectechMobile.Views.EngineerDetailsPage"
+             Title="Engineer Info">
+    <ScrollView HorizontalOptions="Fill">
+        <Frame Margin="16" Padding="20" BorderColor="Gray"
+           CornerRadius="12" HasShadow="True">
+            <VerticalStackLayout Spacing="16" HorizontalOptions="Fill">
+                <!-- Profile Photo Section -->
+                <Frame CornerRadius="75" 
+                   IsClippedToBounds="True" 
+                   HeightRequest="150" 
+                   WidthRequest="150" 
+                   Padding="0"
+                   BorderColor="Gray"
+                   HorizontalOptions="Center">
+                    <Image x:Name="EngineerPhoto"
+                       Aspect="AspectFill"
+                      />
+                </Frame>
+
+                <!-- Header Section -->
+                <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                    <Label x:Name="EngName" 
+                       Text="{Binding EngName}"
+                       FontSize="28" 
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"/>
+                    <BoxView HeightRequest="2" 
+                         Color="Gray"
+                         HorizontalOptions="Center"
+                         WidthRequest="60"/>
+                </VerticalStackLayout>
+
+                <!-- Contact Info Section -->
+                <Frame BorderColor="Transparent" 
+                   BackgroundColor="#f5f5f5"
+                   Padding="16" 
+                   CornerRadius="8">
+                    <VerticalStackLayout Spacing="12">
+                        <!-- Phone Number -->
+                        <HorizontalStackLayout HorizontalOptions="End" Spacing="8">
+                            <Label x:Name="PhoneNum" 
+                               Text="{Binding PhoneNum}"
+                               FontSize="18" 
+                               FontAttributes="Bold"/>
+                            <Label Text="رقم التليفون" 
+                               FontSize="18"/>
+                        </HorizontalStackLayout>
+
+                        <!-- Mobile -->
+                        <HorizontalStackLayout HorizontalOptions="End" Spacing="8">
+                            <Label x:Name="Mobile" 
+                               Text="{Binding Mobile}"
+                               FontSize="18" 
+                               FontAttributes="Bold"/>
+                            <Label Text="المحمول:" 
+                               FontSize="18"/>
+                        </HorizontalStackLayout>
+
+                       
+                        <HorizontalStackLayout HorizontalOptions="End" Spacing="8">
+                            <Label x:Name="Area" 
+                       Text="{Binding EngArea}"
+                                   LineBreakMode="WordWrap"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="Fill"
+                       FontSize="18" 
+                           FontAttributes="Bold"/>
+                            <Label Text="المنطقة:" 
+                                  FontSize="18"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Info Button -->
+                <Button x:Name="btnCustomers"  Text="More Information" 
+                    Clicked="btnCustomers_Clicked"
+                    HorizontalOptions="Center"
+                    WidthRequest="200"
+                    HeightRequest="50"
+                    CornerRadius="25"
+                    FontAttributes="Bold"/>
+            </VerticalStackLayout>
+        </Frame>
+    </ScrollView>
+</ContentPage>

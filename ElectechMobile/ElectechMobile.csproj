@@ -78,6 +78,10 @@
 	  <None Remove="Assets\SWITCHandJUNCTIONBOX.pdf" />
 	  <None Remove="Assets\TÜV_IT_16_ATEX_023QRev2.pdf" />
 	  <None Remove="Resources\Images\elc.jpeg" />
+	  <None Remove="Resources\Images\eng_1.jpg" />
+	  <None Remove="Resources\Images\eng_12.jpg" />
+	  <None Remove="Resources\Images\eng_5.JPG" />
+	  <None Remove="Resources\Images\myphoto.jpeg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -145,6 +149,12 @@
 	     <Generator>MSBuild:Compile</Generator>
 	   </MauiXaml>
 	   <MauiXaml Update="Views\DecumentsPage.xaml">
+	     <Generator>MSBuild:Compile</Generator>
+	   </MauiXaml>
+	   <MauiXaml Update="Views\EngineerDetailsPage.xaml">
+	     <Generator>MSBuild:Compile</Generator>
+	   </MauiXaml>
+	   <MauiXaml Update="Views\EngineerListPage.xaml">
 	     <Generator>MSBuild:Compile</Generator>
 	   </MauiXaml>
 	   <MauiXaml Update="Views\FirstVistPage.xaml">

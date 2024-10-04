@@ -13,13 +13,13 @@ public static class ApiService<T> where T : class
     };
     public static async Task<T[]> GetAll(string? url = null)
     {
-        string result = await Client.GetStringAsync(Path.Combine(url ?? typeof(T).Name, nameof(GetAll)).Replace('\\', '/'));
+        string result = await Client.GetStringAsync(Path.Combine(url ?? Path.Combine(typeof(T).Name, nameof(GetAll))).Replace('\\', '/'));
         return JsonConvert.DeserializeObject<T[]>(result)!;
     }
     public static async Task<T> GetById(int Id, string? url = null)
     {
-        string result = await Client.GetStringAsync(Path.Combine(url ?? typeof(T).Name, nameof(GetById), Id.ToString()).Replace('\\', '/'));
-        return JsonConvert.DeserializeObject<T>(result);
+        string result = await Client.GetStringAsync(Path.Combine(url ?? Path.Combine(typeof(T).Name, nameof(GetById)), Id.ToString()).Replace('\\', '/'));
+        return JsonConvert.DeserializeObject<T>(result)!;
     }
     public static async Task<bool> Post(T Body, string? url = null)
     {

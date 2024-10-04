@@ -24,7 +24,7 @@ public partial class SalPage : ContentPage
             await Task.Delay(3000); // Simulating a 3-second loading time
 
             sales = await Salservice.GetAll();
-            dataGrid.ItemsSource = sales;
+            dataGrid.ItemsSource = sales.Take(10).ToArray();
         }
         finally
         {

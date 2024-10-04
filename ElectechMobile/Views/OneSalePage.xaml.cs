@@ -29,7 +29,7 @@ public partial class OneSalePage : ContentPage
 
         try
         {
-            await Task.Delay(3000);
+            
             sales = await Salservice.GetAll();
             if (sales == null || sales.Length == 0)
             {
@@ -45,7 +45,7 @@ public partial class OneSalePage : ContentPage
             }
 
             salNo.Text = _saleId.ToString();
-            custName.Text = sale.custName?.ToString() ?? "N/A";
+            custName.Text = sale.custName ?? "N/A";
 
             saleDets = await Salservice.GetSalId(_saleId);
             if (saleDets == null)
