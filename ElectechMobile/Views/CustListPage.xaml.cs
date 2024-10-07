@@ -19,7 +19,7 @@ public partial class CustListPage : ContentPage
     {
         if (dataGrid.SelectedRow is Customer customer)
         {
-            Navigation.PushAsync(new CustomerDisplayPage(customer.id));
+           await Navigation.PushAsync(new CustomerDisplayPage(customer.id));
             dataGrid.SelectedRow = null;
         }
     }

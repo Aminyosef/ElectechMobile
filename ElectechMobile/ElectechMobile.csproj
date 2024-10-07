@@ -80,7 +80,12 @@
 	  <None Remove="Resources\Images\elc.jpeg" />
 	  <None Remove="Resources\Images\eng_1.jpg" />
 	  <None Remove="Resources\Images\eng_12.jpg" />
+	  <None Remove="Resources\Images\eng_13.JPG" />
+	  <None Remove="Resources\Images\eng_2.JPG" />
+	  <None Remove="Resources\Images\eng_3.JPG" />
 	  <None Remove="Resources\Images\eng_5.JPG" />
+	  <None Remove="Resources\Images\eng_8.JPG" />
+	  <None Remove="Resources\Images\eng_9.JPG" />
 	  <None Remove="Resources\Images\myphoto.jpeg" />
 	</ItemGroup>
 
@@ -140,6 +145,9 @@
 	     <Generator>MSBuild:Compile</Generator>
 	   </MauiXaml>
 	   <MauiXaml Update="Views\CustListPage.xaml">
+	     <Generator>MSBuild:Compile</Generator>
+	   </MauiXaml>
+	   <MauiXaml Update="Views\CustNotFollMonthPage.xaml">
 	     <Generator>MSBuild:Compile</Generator>
 	   </MauiXaml>
 	   <MauiXaml Update="Views\CustomerDisplayPage.xaml">

@@ -75,10 +75,10 @@
                 </Frame>
 
                 <!-- Info Button -->
-                <Button x:Name="btnCustomers"  Text="More Information" 
+                <Button x:Name="btnCustomers"   
                     Clicked="btnCustomers_Clicked"
                     HorizontalOptions="Center"
-                    WidthRequest="200"
+                    WidthRequest="300"
                     HeightRequest="50"
                     CornerRadius="25"
                     FontAttributes="Bold"/>

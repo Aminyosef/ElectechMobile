@@ -26,7 +26,7 @@ public partial class EngineerListPage : ContentPage
     {
 		if(e.AddedRows[0] is Engineer eng)
 		{
-			Navigation.PushAsync(new EngineerDetailsPage(eng.Id));
+			await Navigation.PushAsync(new EngineerDetailsPage(eng.Id));
 		}
 		else
 		{
