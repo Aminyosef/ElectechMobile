@@ -27,7 +27,7 @@ public partial class EngineerDetailsPage : ContentPage
     async void Getcustomer(int id)
     {
         int custCount = (await ApiService<Customer>.GetFolwByEngId(id)).Length;
-        btnCustomers.Text = $"عملاء لم يتم متابعتهم منذ30 يوما {custCount} عميل";
+        btnCustomers.Text = $"عملاء لم يتم متابعتهم منذ30يوما {custCount} عميل";
     }
     private void Button_Clicked(object sender, EventArgs e)
     {

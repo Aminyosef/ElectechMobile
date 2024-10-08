@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="ElectechMobile.Views.ProductsListPage"
+             Title="Products List">
+    <ContentPage.Content>
+        <Grid RowDefinitions="*">
+            <VerticalStackLayout Spacing="5">
+        <Label x:Name="CatName" 
+                   FontSize="Medium"
+                   HorizontalOptions="CenterAndExpand" 
+                   Padding="10,5,5,0"/>
+        <syncfusion:SfListView x:Name="listView" 
+                      FlowDirection="RightToLeft"
+                      ItemSize="150" 
+                      ItemSpacing="10"
+                      Margin="10"
+                      SelectionMode="Single"
+                      ItemsSource="{Binding Products}">
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="0"
+                   Padding="5"
+                   BorderColor="Black"
+                   CornerRadius="6"
+                   HasShadow="True">
+                        <Grid Padding="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Product Name -->
+                            <Label Text="{Binding name}" 
+                           Grid.ColumnSpan="3"
+                           FontAttributes="None" 
+                           TextColor="Teal" 
+                           FontSize="18"
+                           LineBreakMode="WordWrap"
+                           MaxLines="2"
+                           HorizontalOptions="Fill"
+                           Margin="0,0,30,5"/>
+
+                            <!-- Code Row -->
+                            <Label Grid.Row="1" 
+                           Grid.Column="0"
+                           Grid.ColumnSpan="3"
+                           Text="{Binding cod}" 
+                           TextColor="Black"
+                           FontSize="12"
+                           LineBreakMode="WordWrap"
+                           MaxLines="0"
+                           HorizontalOptions="Fill"
+                           Margin="0,0,0,5" />
+
+                            <!-- Price Row -->
+                            <Label Grid.Row="2" 
+                           Grid.Column="0"
+                           Text="السعر" 
+                           TextColor="Red" 
+                           FontSize="15"
+                           HorizontalOptions="Start"/>
+                            <Label Grid.Row="2" 
+                           Grid.Column="1"
+                           Text="{Binding price}" 
+                           TextColor="Red" 
+                           FontSize="15"
+                           HorizontalOptions="Start"
+                           Margin="5,0,10,0"/>
+
+                            <!-- Stock Row -->
+                            <Label Grid.Row="3" 
+                           Grid.Column="0"
+                           Text="المخزون" 
+                           TextColor="Black" 
+                           FontSize="15"
+                           HorizontalOptions="Start"/>
+                            <Label Grid.Row="3" 
+                           Grid.Column="1"
+                           Text="{Binding qty2023}" 
+                           TextColor="Black" 
+                           FontSize="15"
+                           HorizontalOptions="Start"
+                           Margin="5,0,10,0"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        </syncfusion:SfListView>
+    </VerticalStackLayout>
+
+            <core:SfBusyIndicator x:Name="busyIndicator"
+   Title="جاري تحميل البيانات ...."
+   TitleSpacing="30"
+   TitlePlacement="Bottom"
+   IndicatorColor="Blue"
+   AnimationType="Cupertino"/>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

@@ -13,6 +13,7 @@
     <ShellContent Title = "Customers" ContentTemplate = "{DataTemplate local:Views.CustListPage}" Route ="Views.CustListPage" />
     <ShellContent Title = "Sales" ContentTemplate = "{DataTemplate local:Views.SalPage}" Route ="Views.SalPage" />
     <ShellContent Title = "Sales Engineers" ContentTemplate = "{DataTemplate local:Views.EngineerListPage}" Route ="Views.EngineerListPage" />
+    <ShellContent Title = "Products Categories" ContentTemplate = "{DataTemplate local:Views.CategoryPage}" Route ="Views.CategoryPage" />
 
 
 </Shell>

@@ -20,10 +20,10 @@ namespace ElectechMobile.Services
             StringContent content = new(JsonConvert.SerializeObject(Body), Encoding.UTF8, "application/json");
             return (await Client.PostAsync("CustFlow/Create".Replace('\\', '/'), content)).IsSuccessStatusCode;
         }
-        public static async Task<List<Customer>> GetCustomersByName(string custName)
+        public static async Task<IEnumerable<Customer>> GetCustomersByName(string custName)
         {
             var response = await Client.GetAsync($"Customer/GetName/{custName}");;
-            return JsonConvert.DeserializeObject<List<Customer>>(await response.Content.ReadAsStringAsync());
+            return JsonConvert.DeserializeObject<IEnumerable<Customer>>(await response.Content.ReadAsStringAsync());
         }
     }
 
