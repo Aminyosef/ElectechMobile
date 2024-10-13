@@ -30,7 +30,13 @@
             <Button x:Name="verksn" Clicked="verksn_Clicked" Text="VYRTYCH FLOODLIGHT" Background="IndianRed" FontSize="Medium"/>
             <Button x:Name="verknAtEX" Clicked="verknAtEX_Clicked" Text="VYRTYCH FLOODLIGHT ATEX" Background="IndianRed" FontSize="Medium"/>
 
-            <Button x:Name="adel" Clicked="adel_Clicked" Text="IRINOX AZ IP66 Certificate" Background="GreenYellow" FontSize="Medium"/>
+            <Button x:Name="adelCatalog" Clicked="adelCatalog_Clicked" Text="ADEL Flex Catalogue" Background="Orange" FontSize="Medium"/>
+            <Button x:Name="adel" Clicked="adel_Clicked" Text="ADEL system Conformity Declaration FLEX" Background="Orange" FontSize="Medium"/>
+            <Button x:Name="FLEX9024A" Clicked="FLEX9024A_Clicked" Text="FLEX9024A" Background="Orange" FontSize="Medium"/>
+            <Button x:Name="FLEX17024A" Clicked="FLEX17024A_Clicked" Text="FLEX17024A" Background="Orange" FontSize="Medium"/>
+            <Button x:Name="FLEX28024A" Clicked="FLEX28024A_Clicked" Text="FLEX28024A" Background="Orange" FontSize="Medium"/>
+            <Button x:Name="ULcertificate" Clicked="ULcertificate_Clicked" Text="UL certificate" Background="Orange" FontSize="Medium"/>
+            <Button x:Name="Geny" Clicked="Geny_Clicked" Text="Manual_GENIE_NX" Background="Green" FontSize="Medium"/>
 
             <Button x:Name="alfBS" Clicked="alfBS_Clicked" Text="Alf Switches BS Catlog" FontSize="Medium"/>
             <Button x:Name="alfEu" Clicked="alfEu_Clicked" Text="Alf Switches Euro Catlog" FontSize="Medium"/>

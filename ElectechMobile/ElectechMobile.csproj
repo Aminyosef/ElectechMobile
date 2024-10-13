@@ -3,16 +3,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>net8.0-android</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
-		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
-
-		<!-- Note for MacCatalyst:
-		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
-		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifer>.
-		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
-		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
-		<!-- ex. <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
-
+		
 		<OutputType>Exe</OutputType>
 		<RootNamespace>ElectechMobile</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -20,7 +11,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>Electech_Mobile</ApplicationTitle>
+		<ApplicationTitle>Electech_Mobile_01</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.Elc.ElectechMobile</ApplicationId>
@@ -50,33 +41,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Assets\1P66ce_certificate_irinox.pdf" />
-	  <None Remove="Assets\AMCBcatalogue.pdf" />
-	  <None Remove="Assets\artcatalogue.pdf" />
-	  <None Remove="Assets\ASTARUVResistance.pdf" />
-	  <None Remove="Assets\atex_en_extra-n-led.pdf" />
-	  <None Remove="Assets\atex_en_grey-n-led.pdf" />
-	  <None Remove="Assets\AWG.pdf" />
-	  <None Remove="Assets\BRES2017.pdf" />
-	  <None Remove="Assets\BRESIEC62208.pdf" />
-	  <None Remove="Assets\CompactCabinet.pdf" />
-	  <None Remove="Assets\DECLARATIONOFCONFORMITY_AZ_SD_IP66.pdf" />
-	  <None Remove="Assets\EKO-en.pdf" />
-	  <None Remove="Assets\EnglishBR.pdf" />
-	  <None Remove="Assets\EnglishEU.pdf" />
-	  <None Remove="Assets\ENG_ATEX_K-N.pdf" />
-	  <None Remove="Assets\IP66NEW.pdf" />
-	  <None Remove="Assets\ks_en_EXTRA-N-LEDNEW.pdf" />
-	  <None Remove="Assets\ks_en_GREY-LED.pdf" />
-	  <None Remove="Assets\ks_en_k-2-n_k-3-n.pdf" />
-	  <None Remove="Assets\LD_catalog.pdf" />
-	  <None Remove="Assets\MetalEnclosuresP66Catalogue.pdf" />
-	  <None Remove="Assets\NEWcatalougeAZ.pdf" />
-	  <None Remove="Assets\newTÜVIT16ATEX001URev1.pdf" />
-	  <None Remove="Assets\RIGIDEZDIELECTRICAENVOLVENTES_eng.pdf" />
-	  <None Remove="Assets\scheda_ADH_en.pdf" />
-	  <None Remove="Assets\SWITCHandJUNCTIONBOX.pdf" />
-	  <None Remove="Assets\TÜV_IT_16_ATEX_023QRev2.pdf" />
 	  <None Remove="Resources\Images\elc.jpeg" />
 	  <None Remove="Resources\Images\eng_1.jpg" />
 	  <None Remove="Resources\Images\eng_12.jpg" />
@@ -95,35 +59,6 @@
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
-	<ItemGroup>
-	  <EmbeddedResource Include="Assets\1P66ce_certificate_irinox.pdf" />
-	  <EmbeddedResource Include="Assets\AMCBcatalogue.pdf" />
-	  <EmbeddedResource Include="Assets\artcatalogue.pdf" />
-	  <EmbeddedResource Include="Assets\ASTARUVResistance.pdf" />
-	  <EmbeddedResource Include="Assets\atex_en_extra-n-led.pdf" />
-	  <EmbeddedResource Include="Assets\atex_en_grey-n-led.pdf" />
-	  <EmbeddedResource Include="Assets\AWG.pdf" />
-	  <EmbeddedResource Include="Assets\BRES2017.pdf" />
-	  <EmbeddedResource Include="Assets\BRESIEC62208.pdf" />
-	  <EmbeddedResource Include="Assets\CompactCabinet.pdf" />
-	  <EmbeddedResource Include="Assets\DECLARATIONOFCONFORMITY_AZ_SD_IP66.pdf" />
-	  <EmbeddedResource Include="Assets\EKO-en.pdf" />
-	  <EmbeddedResource Include="Assets\EnglishBR.pdf" />
-	  <EmbeddedResource Include="Assets\EnglishEU.pdf" />
-	  <EmbeddedResource Include="Assets\ENG_ATEX_K-N.pdf" />
-	  <EmbeddedResource Include="Assets\IP66NEW.pdf" />
-	  <EmbeddedResource Include="Assets\ks_en_EXTRA-N-LEDNEW.pdf" />
-	  <EmbeddedResource Include="Assets\ks_en_GREY-LED.pdf" />
-	  <EmbeddedResource Include="Assets\ks_en_k-2-n_k-3-n.pdf" />
-	  <EmbeddedResource Include="Assets\LD_catalog.pdf" />
-	  <EmbeddedResource Include="Assets\MetalEnclosuresP66Catalogue.pdf" />
-	  <EmbeddedResource Include="Assets\NEWcatalougeAZ.pdf" />
-	  <EmbeddedResource Include="Assets\newTÜVIT16ATEX001URev1.pdf" />
-	  <EmbeddedResource Include="Assets\RIGIDEZDIELECTRICAENVOLVENTES_eng.pdf" />
-	  <EmbeddedResource Include="Assets\scheda_ADH_en.pdf" />
-	  <EmbeddedResource Include="Assets\SWITCHandJUNCTIONBOX.pdf" />
-	  <EmbeddedResource Include="Assets\TÜV_IT_16_ATEX_023QRev2.pdf" />
-	</ItemGroup>
         <ItemGroup>
 	   <MauiAsset Include="Project_Readme.html" />
 	</ItemGroup>
@@ -132,13 +67,18 @@
                 <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
                 <PackageReference Include="Syncfusion.Maui.Datagrid" Version="27.1.50" />
     <PackageReference Include="Syncfusion.Maui.PdfViewer" Version="27.1.50" />
+    <PackageReference Include="Syncfusion.Maui.Picker" Version="27.1.50" />
     <PackageReference Include="Syncfusion.Maui.ProgressBar" Version="27.1.50" />
     <PackageReference Include="Syncfusion.Maui.Charts" Version="27.1.50" />
     <PackageReference Include="Syncfusion.Maui.Core" Version="27.1.50" />
-         </ItemGroup>
+
+	 </ItemGroup>
 	
 	 <ItemGroup>
 	   <MauiXaml Update="Views\AddFollowPage.xaml">
+	     <Generator>MSBuild:Compile</Generator>
+	   </MauiXaml>
+	   <MauiXaml Update="Views\CancelledSalesPage.xaml">
 	     <Generator>MSBuild:Compile</Generator>
 	   </MauiXaml>
 	   <MauiXaml Update="Views\CategoryPage.xaml">
@@ -174,15 +114,25 @@
 	   <MauiXaml Update="Views\HomeScreenPage.xaml">
 	     <Generator>MSBuild:Compile</Generator>
 	   </MauiXaml>
+	   <MauiXaml Update="Views\OneSaleCPage.xaml">
+	     <Generator>MSBuild:Compile</Generator>
+	   </MauiXaml>
 	   <MauiXaml Update="Views\OneSalePage.xaml">
 	     <Generator>MSBuild:Compile</Generator>
 	   </MauiXaml>
 	   <MauiXaml Update="Views\ProductsListPage.xaml">
 	     <Generator>MSBuild:Compile</Generator>
 	   </MauiXaml>
+	   <MauiXaml Update="Views\ProductTranPage.xaml">
+	     <Generator>MSBuild:Compile</Generator>
+	   </MauiXaml>
 	   <MauiXaml Update="Views\SalPage.xaml">
 	     <Generator>MSBuild:Compile</Generator>
 	   </MauiXaml>
+	 </ItemGroup>
+	
+	 <ItemGroup>
+	   <Folder Include="Assets\" />
 	 </ItemGroup>
 	<!-- Build Properties must be defined within these property groups to ensure successful publishing
        to the Mac App Store. See: https://aka.ms/maui-publish-app-store#define-build-properties-in-your-project-file -->

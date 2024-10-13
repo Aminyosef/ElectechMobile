@@ -8,7 +8,10 @@ namespace ElectechMobile.Model
 {
     public class SaleDet
     {
-        public int QtyOut { get; set; }
-        public string ProductName { get; set; }
+        public string code { get; set; }
+        public int qtyOut { get; set; }
+        public decimal price { get; set; }
+        public decimal amount { get; set; }
+        public string productName { get; set; }
     }
 }

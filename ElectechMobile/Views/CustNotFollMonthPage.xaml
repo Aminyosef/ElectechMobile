@@ -9,7 +9,7 @@
         <Grid RowDefinitions="Auto,*">
       
             <syncfusion:SfDataGrid x:Name="dataGrid" Grid.Row="1"
-                                   HorizontalOptions="EndAndExpand"
+                                   HorizontalOptions="CenterAndExpand"
                                AutoGenerateColumnsMode="None"
                                ColumnWidthMode="Fill"
                                SelectionMode="Single"
@@ -18,9 +18,8 @@
                                AllowTriStateSorting="True"
                                    SelectionChanged="dataGrid_SelectionChanged">
                 <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:DataGridTextColumn MappingName="custName" HeaderText="Customer Name" HeaderTextAlignment="Center"/>
                     
-
-                    <syncfusion:DataGridTextColumn HeaderTextAlignment="Center" CellTextAlignment="Center" MappingName="custName" HeaderText="Customer Name"/>
                 </syncfusion:SfDataGrid.Columns>
             </syncfusion:SfDataGrid>
             <core:SfBusyIndicator x:Name="busyIndicator"

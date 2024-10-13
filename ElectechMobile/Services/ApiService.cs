@@ -6,7 +6,7 @@ namespace ElectechMobile.Services;
 #nullable enable
 public static class ApiService<T> where T : class
 {  
-    private const string BaseUrl = "http://amingomaa-001-site24.dtempurl.com/api/";
+    public const string BaseUrl = "http://amingomaa-001-site24.dtempurl.com/api/";
     private static readonly HttpClient Client = new()
     {
         BaseAddress = new(BaseUrl)

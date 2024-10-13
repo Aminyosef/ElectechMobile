@@ -29,5 +29,14 @@ public static async Task<Category[]> GetCategories(string? url = null)
             string result= await Client.GetStringAsync(requestUrl);
             return JsonConvert.DeserializeObject<Product[]>(result);
         }
+        public static async Task<ProductTrans[]> GetProductMotion(int id,DateTime sdate,DateTime edate ,string? url = null)
+        {
+            string baseUrl = url ?? "http://amingomaa-001-site24.dtempurl.com/api/Product/GetByDates";
+
+            string requestUrl = $"{baseUrl}/{id}/{sdate}/{edate}";
+            string result = await Client.GetStringAsync(requestUrl);
+            return JsonConvert.DeserializeObject<ProductTrans[]>(result);
+        }
+
     }
 }

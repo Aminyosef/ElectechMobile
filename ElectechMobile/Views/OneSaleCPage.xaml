@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+                xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="ElectechMobile.Views.OneSaleCPage"
+                         Title="اذن استلام ملغي">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <!-- لتوسيع مساحة القائمة -->
+                <RowDefinition Height="Auto" />
+                <!-- للصف الأخير -->
+            </Grid.RowDefinitions>
+
+            <!-- العنوان -->
+            <Label x:Name="CatName" 
+               FontSize="Medium"
+               HorizontalOptions="CenterAndExpand"
+               Padding="10,5,5,0"
+               Grid.Row="0" />
+
+            <!-- القائمة -->
+            <syncfusion:SfListView x:Name="sallistView"
+                              FlowDirection="RightToLeft"
+                              ItemSize="165"
+                              ItemSpacing="7"
+                              Margin="10"
+                              SelectionMode="Single"
+                              ItemsSource="{Binding saleDets}"
+                              VerticalOptions="FillAndExpand"
+                              Grid.Row="1">
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Spacing="5" Padding="10">
+                            <Label Text="{Binding productName}" 
+                               FontAttributes="None"
+                               TextColor="Teal"
+                               FontSize="16"
+                               LineBreakMode="TailTruncation"
+                               MaxLines="2" />
+                            <Label Text="{Binding code}" 
+                               TextColor="Black"
+                               FontSize="12"
+                               LineBreakMode="TailTruncation"
+                               MaxLines="2" />
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="الكمية" TextColor="Black" FontSize="15" Grid.Column="0" />
+                                <Label Text="{Binding qtyOut}" TextColor="Black" FontSize="15" Grid.Column="1" />
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="السعر" TextColor="Red" FontSize="15" Grid.Column="0" />
+                                <Label Text="{Binding price}" TextColor="Red" FontSize="15" Grid.Column="1" />
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="المبلغ" TextColor="Red" FontSize="15" Grid.Column="0" />
+                                <Label Text="{Binding amount}" TextColor="Red" FontSize="15" Grid.Column="1" />
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+
+            <!-- الصف الأخير -->
+            <VerticalStackLayout Grid.Row="2" Padding="10" Spacing="5" Margin="5" FlowDirection="RightToLeft">
+                <Grid Margin="5" ColumnSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Text="المبلغ قبل الخصم" FontSize="Large"/>
+                    <Label  x:Name="Total" Grid.Row="0" Grid.Column="1"  FontSize="Large"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="نسبة الخصم" FontSize="Medium"/>
+                    <Label x:Name="Dis" Grid.Row="1" Grid.Column="1"  FontSize="Medium"/>
+                                   </Grid>
+            </VerticalStackLayout>
+
+            <!-- مؤشر التحميل -->
+            <core:SfBusyIndicator x:Name="busyIndicator"
+                              Title="جاري تحميل البيانات ...."
+                              TitleSpacing="30"
+                              TitlePlacement="Bottom"
+                              IndicatorColor="Blue"
+                              AnimationType="Cupertino"
+                              Grid.Row="1" />
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

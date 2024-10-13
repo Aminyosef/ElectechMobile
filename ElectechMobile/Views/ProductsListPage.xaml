@@ -12,10 +12,10 @@
                    FontSize="Medium"
                    HorizontalOptions="CenterAndExpand" 
                    Padding="10,5,5,0"/>
-        <syncfusion:SfListView x:Name="listView" 
+                <syncfusion:SfListView x:Name="listView" 
                       FlowDirection="RightToLeft"
-                      ItemSize="150" 
-                      ItemSpacing="10"
+                      ItemSize="180" 
+                      ItemSpacing="3"
                       Margin="10"
                       SelectionMode="Single"
                       ItemsSource="{Binding Products}">
@@ -32,7 +32,10 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
+                                 <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+
+                                    </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
@@ -40,9 +43,10 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <!-- Product Name -->
+                                    <!-- Product Name -->
                             <Label Text="{Binding name}" 
                            Grid.ColumnSpan="3"
+                                   Grid.Row="0"
                            FontAttributes="None" 
                            TextColor="Teal" 
                            FontSize="18"
@@ -92,7 +96,10 @@
                            FontSize="15"
                            HorizontalOptions="Start"
                            Margin="5,0,10,0"/>
-                        </Grid>
+                                    <Button x:Name="btnProdMothon" Clicked="btnProdMothon_Clicked" Text="حركة الصنف"
+                                            CommandParameter="{Binding id}"
+                                    Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"/>
+                                </Grid>
                     </Frame>
                 </DataTemplate>
             </syncfusion:SfListView.ItemTemplate>

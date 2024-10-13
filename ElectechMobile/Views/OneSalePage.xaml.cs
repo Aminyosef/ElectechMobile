@@ -1,13 +1,15 @@
 using ElectechMobile.Model;
 using ElectechMobile.Services;
+using Microsoft.Maui.Controls;
 using Syncfusion.Maui.Core;
+using Syncfusion.Maui.ListView;
+using System.Numerics;
 
 namespace ElectechMobile.Views;
 
 public partial class OneSalePage : ContentPage
 {
     private int _saleId;
-    public SaleDet[] saleDets { get; private set; }
     public sal[] sales { get; private set; }
 
     public OneSalePage(int id)
@@ -15,55 +17,40 @@ public partial class OneSalePage : ContentPage
         InitializeComponent();
         Application.Current.UserAppTheme = AppTheme.Light;
         _saleId = id;
+        GetProductsByCatId(_saleId);
     }
 
-    protected override async void OnAppearing()
-    {
-        base.OnAppearing();
-        await InitializeSaleData();
-    }
 
-    private async Task InitializeSaleData()
+    public SaleDet[] saleDets { get; set; }
+    async void GetProductsByCatId(int prodId)
     {
-        busyIndicator.IsRunning = true;
-
         try
         {
-            
-            sales = await Salservice.GetAll();
-            if (sales == null || sales.Length == 0)
-            {
-                await DisplayAlert("Error", "Failed to load sales data", "OK");
-                return;
-            }
+            busyIndicator.IsRunning = true;
 
-            var sale = sales.FirstOrDefault(x => x.id == _saleId);
-            if (sale == null)
-            {
-                await DisplayAlert("Error", $"Sale with ID {_saleId} not found", "OK");
-                return;
-            }
-
-            salNo.Text = _saleId.ToString();
-            custName.Text = sale.custName ?? "N/A";
-
+            var getSal = (await Salservice.GetAll()).FirstOrDefault(x=>x.id==_saleId);
             saleDets = await Salservice.GetSalId(_saleId);
-            if (saleDets == null)
-            {
-                await DisplayAlert("Error", "Failed to load sale details", "OK");
-                return;
-            }
 
-            dataGrid.ItemsSource = saleDets.ToList();
+            if (getSal != null)
+            {
+
+
+                CatName.Text = getSal.custName.ToString();
+                Total.Text = saleDets.Sum(x=>x.amount).ToString();
+                Dis.Text=getSal.dis.ToString();
+                FinalTotal.Text=getSal.total.ToString();
+                sallistView.ItemsSource = saleDets;
+
+
+            }
+            await Task.Delay(1000);
+            busyIndicator.IsRunning = false;
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
-            Console.WriteLine($"Error in InitializeSaleData: {ex}");
+            // Handle or log the exception as needed
+            Console.WriteLine($"An error occurred: {ex.Message}");
         }
-        finally
-        {
-            busyIndicator.IsRunning = false;
-        }
+
     }
 }

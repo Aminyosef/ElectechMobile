@@ -35,12 +35,44 @@ namespace ElectechMobile.Services
                 return Array.Empty<sal>(); // Return an empty array on error
             }
         }
+        public static async Task<sal[]> GetAllc(string? url = null)
+        {
+            // Set the default URL if no custom URL is provided
+            string baseUrl = url ?? "http://amingomaa-001-site24.dtempurl.com/api/sal/getallc";
+
+            // Combine the base URL with the id
+            string requestUrl = $"{baseUrl}";
+
+            try
+            {
+                // Make the HTTP GET request
+                string result = await Client.GetStringAsync(requestUrl);
+                Console.WriteLine($"API Response: {result}");
+
+                // Deserialize the JSON response into an array of CustFollw objects
+                return JsonConvert.DeserializeObject<sal[]>(result)!;
+            }
+            catch (Exception ex)
+            {
+                // Handle or log the exception as needed
+                Console.WriteLine($"An error occurred: {ex.Message}");
+                return Array.Empty<sal>(); // Return an empty array on error
+            }
+        }
+
         public static async Task<sal[]> Search(string text)
         {
             string baseUrl = $"http://amingomaa-001-site24.dtempurl.com/api/Sal/SearchSal/{text}";
             var response = await Client.GetStringAsync(baseUrl);
             return JsonConvert.DeserializeObject<sal[]>(response);
         }
+        public static async Task<sal[]> Searchc(string text)
+        {
+            string baseUrl = $"http://amingomaa-001-site24.dtempurl.com/api/Sal/SearchSalc/{text}";
+            var response = await Client.GetStringAsync(baseUrl);
+            return JsonConvert.DeserializeObject<sal[]>(response);
+        }
+
         public static async Task<SaleDet[]> GetSalId(int id, string? url = null)
         {
             // Set the default URL if no custom URL is provided

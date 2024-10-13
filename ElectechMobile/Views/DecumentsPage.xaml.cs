@@ -85,7 +85,6 @@ public partial class DecumentsPage : ContentPage
     private void alfBS_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new PDFViewerFeatures("EnglishBR.pdf"));
-
     }
 
     private void alfEu_Clicked(object sender, EventArgs e)
@@ -96,6 +95,7 @@ public partial class DecumentsPage : ContentPage
 
     private void adel_Clicked(object sender, EventArgs e)
     {
+        Navigation.PushAsync(new PDFViewerFeatures("ADEL system Conformity Declaration FLEX 2016.pdf"));
 
     }
 
@@ -162,6 +162,59 @@ public partial class DecumentsPage : ContentPage
     private void verksn_Clicked(object sender, EventArgs e)
     {
         Navigation.PushAsync(new PDFViewerFeatures("ks_en_k-2-n_k-3-n.pdf"));
+
+    }
+    
+    private void adelCatalog_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("Flex Catalogue-A4.pdf"));
+
+    }
+
+    private void FLEX9024A_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("FLEX9024A_R15-D.pdf"));
+
+    }
+
+    private void FLEX17024A_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("FLEX17024A_R15-D.pdf"));
+
+    }
+
+    private void adel_Clicked_1(object sender, EventArgs e)
+    {
+
+    }
+
+    private void FLEX17024B_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("FLEX17024B_R14-D.pdf"));
+
+    }
+
+    private void FLEX28024A_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("FLEX28024A_R15-D.pdf"));
+
+    }
+
+    private void FLEX50024B_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("FLEX50024B_R14-D.pdf"));
+
+    }
+
+    private void ULcertificate_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("UL certificate.pdf"));
+
+    }
+
+    private void Geny_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new PDFViewerFeatures("Manual_GENIE_NX.pdf"));
 
     }
 }
