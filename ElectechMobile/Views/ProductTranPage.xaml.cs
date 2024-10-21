@@ -1,57 +1,85 @@
 using ElectechMobile.Model;
 using ElectechMobile.Services;
 using Microsoft.Maui;
+using Newtonsoft.Json;
 using Syncfusion.Maui.Core;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace ElectechMobile.Views;
 
-public partial class ProductTranPage : ContentPage
+public partial class ProductTranPage : ContentPage, INotifyPropertyChanged
 {
     private int _prodId;
-    public ProductTranPage(int id)
+    private ObservableCollection<ProductTrans> _products;
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    public ObservableCollection<ProductTrans> Products
+    {
+        get => _products;
+        set
+        {
+            if (_products != value)
+            {
+                _products = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+    public ProductTranPage(int id,string prodName)
     {
         InitializeComponent();
         Application.Current.UserAppTheme = AppTheme.Light;
         _prodId = id;
-        GetProductName(_prodId);
-
+        BindingContext = this;
+        Products = new ObservableCollection<ProductTrans>();
+        ProdName.Text = prodName;
     }
-    public ProductTrans[] Products { get; set; }
 
-    async void GetProductName(int id)
-    {
-        ProdName.Text = (await ProductService.GetProductByCatId(_prodId)).FirstOrDefault(x => x.id == _prodId).name.ToString();
+   
 
-    }
-    async void GetProductsByCatId(int prodId)
+    async Task GetProductsByCatId()
     {
         try
-        { 
-           busyIndicator.IsRunning = true;
-            DateTime sd = new();
-            DateTime ed = new();
-            ed = EDatepicker.SelectedDate.Value;
-            sd = EDatepicker.SelectedDate.Value;
+        {
+            busyIndicator.IsRunning = true;
 
-            var getProductsm = await ProductService.GetProductMotion(_prodId, sd,ed);
-            
-            if (getProductsm != null)
+            DateTime sd = SDatepicker.SelectedDate.Value;
+            DateTime ed = EDatepicker.SelectedDate.Value;
+
+            var productMotions = await ProductService.GetProductMotion(_prodId, sd, ed);
+
+            Products.Clear();
+            foreach (var product in productMotions)
             {
-
-
-
-               listView.ItemsSource = getProductsm;
-
-
+                Products.Add(product);
             }
-            await Task.Delay(1000);
-            busyIndicator.IsRunning = false;
         }
         catch (Exception ex)
         {
             // Handle or log the exception as needed
-            Console.WriteLine($"An error occurred: {ex.Message}");
+            await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
         }
-
+        finally
+        {
+            busyIndicator.IsRunning = false;
+        }
     }
+
+    private async void btnGetProdMotion_Clicked(object sender, EventArgs e)
+    {
+        await GetProductsByCatId();
+    }
+
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+   
 }
+
+

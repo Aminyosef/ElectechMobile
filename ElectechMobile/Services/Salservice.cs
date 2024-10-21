@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ElectechMobile.Services
 {
-    public static class Salservice
+    public static class Salservice 
     {
         private static readonly HttpClient Client = new();
         public static async Task<sal[]> GetAll(string? url = null)

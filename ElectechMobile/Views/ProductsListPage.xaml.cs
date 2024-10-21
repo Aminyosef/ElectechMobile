@@ -47,20 +47,20 @@ public partial class ProductsListPage : ContentPage
     }
 
     private async void btnProdMothon_Clicked(object sender, EventArgs e)
-    {// Get the Button that triggered the event
+    {
         var button = sender as Button;
 
-        // Retrieve the id passed through CommandParameter
-        if (button?.CommandParameter is int id)
+        if (button?.CommandParameter is Product product)
         {
-          
-            await Navigation.PushAsync(new ProductTranPage(id));
+
+            // Example: Navigate or perform an action using the product object
+             await Navigation.PushAsync(new ProductTranPage(product.id,product.name));
         }
         else
         {
-           await  DisplayAlert("Error", "Failed to retrieve Product ID", "OK");
+           await DisplayAlert("Error", "Failed to retrieve product information.", "OK");
         }
-       
+
 
     }
 }

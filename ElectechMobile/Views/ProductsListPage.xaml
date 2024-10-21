@@ -96,9 +96,12 @@
                            FontSize="15"
                            HorizontalOptions="Start"
                            Margin="5,0,10,0"/>
-                                    <Button x:Name="btnProdMothon" Clicked="btnProdMothon_Clicked" Text="حركة الصنف"
-                                            CommandParameter="{Binding id}"
-                                    Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"/>
+                                    <Button x:Name="btnProdMothon" 
+                Clicked="btnProdMothon_Clicked" 
+                Text="حركة الصنف"
+                Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"
+                CommandParameter="{Binding}">
+                                    </Button>
                                 </Grid>
                     </Frame>
                 </DataTemplate>

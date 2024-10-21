@@ -6,7 +6,7 @@
              x:Class="ElectechMobile.Views.CustNotFollMonthPage"
              Title="العملاء الذي لم يتم متابعتهم">
     <ContentPage.Content>
-        <Grid RowDefinitions="Auto,*">
+        <Grid RowDefinitions="Auto,*" FlowDirection="RightToLeft">
       
             <syncfusion:SfDataGrid x:Name="dataGrid" Grid.Row="1"
                                    HorizontalOptions="CenterAndExpand"

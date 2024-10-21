@@ -34,11 +34,13 @@ public partial class OneSalePage : ContentPage
             if (getSal != null)
             {
 
-
+                SalNo.Text = getSal.id.ToString();
                 CatName.Text = getSal.custName.ToString();
                 Total.Text = saleDets.Sum(x=>x.amount).ToString();
                 Dis.Text=getSal.dis.ToString();
                 FinalTotal.Text=getSal.total.ToString();
+                Date.Text = getSal.orderDate.ToString();
+                Date.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 sallistView.ItemsSource = saleDets;
 
 

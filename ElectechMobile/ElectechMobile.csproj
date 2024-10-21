@@ -11,7 +11,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>Electech_Mobile_01</ApplicationTitle>
+		<ApplicationTitle>ElectechMob01</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.Elc.ElectechMobile</ApplicationId>

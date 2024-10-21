@@ -4,110 +4,116 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              x:Class="ElectechMobile.Views.OneSalePage"
-             Title="اذن استلام">
-    <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <!-- لتوسيع مساحة القائمة -->
-                <RowDefinition Height="Auto" />
-                <!-- للصف الأخير -->
-            </Grid.RowDefinitions>
+             Title="اذن استلام"
+             BackgroundColor="{AppThemeBinding Light=#f0f0f0, Dark=#1a1a1a}">
+    <ContentPage.Resources>
+        <Style x:Key="HeaderLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#2c3e50, Dark=#ecf0f1}"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,10,0,5"/>
+        </Style>
+        <Style x:Key="ItemLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#34495e, Dark=#bdc3c7}"/>
+        </Style>
+        <Style x:Key="PriceLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="#e74c3c"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+    </ContentPage.Resources>
 
-            <!-- العنوان -->
-            <Label x:Name="CatName" 
-               FontSize="Medium"
-               HorizontalOptions="CenterAndExpand"
-               Padding="10,5,5,0"
-               Grid.Row="0" />
+    <Grid Padding="15" RowSpacing="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-            <!-- القائمة -->
+        <StackLayout Grid.Row="0" Spacing="2">
+            <HorizontalStackLayout Spacing="10" Padding="5" HorizontalOptions="CenterAndExpand">
+                <Label x:Name="SalNo" TextColor="Red" FontSize="Large"  />
+                <Label x:Name="Date" FontSize="20" TextColor="Black" />
+            </HorizontalStackLayout>
+            <Label x:Name="CatName" Style="{StaticResource HeaderLabelStyle}"/>
+        </StackLayout>
+
+        <Frame Grid.Row="1" Grid.RowSpan="2" BackgroundColor="{AppThemeBinding Light=#ffffff, Dark=#2c3e50}"
+               CornerRadius="10" Padding="10" HasShadow="True">
             <syncfusion:SfListView x:Name="sallistView"
-                              FlowDirection="RightToLeft"
-                              ItemSize="165"
-                              ItemSpacing="7"
-                              Margin="10"
-                              SelectionMode="Single"
-                              ItemsSource="{Binding saleDets}"
-                              VerticalOptions="FillAndExpand"
-                              Grid.Row="1">
+                                   FlowDirection="RightToLeft"
+                                   ItemSize="180"
+                                   ItemSpacing="10"
+                                   SelectionMode="Single"
+                                   ItemsSource="{Binding saleDets}"
+                                   VerticalOptions="FillAndExpand">
                 <syncfusion:SfListView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Spacing="5" Padding="10">
-                            <Label Text="{Binding productName}" 
-                               FontAttributes="None"
-                               TextColor="Teal"
-                               FontSize="16"
-                               LineBreakMode="TailTruncation"
-                               MaxLines="2" />
-                            <Label Text="{Binding code}" 
-                               TextColor="Black"
-                               FontSize="12"
-                               LineBreakMode="TailTruncation"
-                               MaxLines="2" />
-
-                            <Grid>
+                        <Frame CornerRadius="8" Padding="10" Margin="0,5" 
+                               BackgroundColor="{AppThemeBinding Light=#f8f9fa, Dark=#34495e}">
+                            <Grid RowSpacing="5" ColumnSpacing="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text="الكمية" TextColor="Black" FontSize="15" Grid.Column="0" />
-                                <Label Text="{Binding qtyOut}" TextColor="Black" FontSize="15" Grid.Column="1" />
-                            </Grid>
 
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Label Text="السعر" TextColor="Red" FontSize="15" Grid.Column="0" />
-                                <Label Text="{Binding price}" TextColor="Red" FontSize="15" Grid.Column="1" />
-                            </Grid>
+                                <Label Text="{Binding productName}" Grid.ColumnSpan="2"
+                                       Style="{StaticResource ItemLabelStyle}" FontAttributes="Bold" TextColor="#3498db"/>
+                                <Label Text="{Binding code}" Grid.Row="1" Grid.ColumnSpan="2"
+                                       Style="{StaticResource ItemLabelStyle}" FontSize="14"/>
 
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <Label Text="المبلغ" TextColor="Red" FontSize="15" Grid.Column="0" />
-                                <Label Text="{Binding amount}" TextColor="Red" FontSize="15" Grid.Column="1" />
+                                <Label Text="الكمية" Grid.Row="2" Style="{StaticResource ItemLabelStyle}"/>
+                                <Label Text="{Binding qtyOut}" Grid.Row="2" Grid.Column="1" Style="{StaticResource ItemLabelStyle}"/>
+
+                                <Label Text="السعر" Grid.Row="3" Style="{StaticResource PriceLabelStyle}"/>
+                                <Label Text="{Binding price}" Grid.Row="3" Grid.Column="1" Style="{StaticResource PriceLabelStyle}"/>
                             </Grid>
-                        </StackLayout>
+                        </Frame>
                     </DataTemplate>
                 </syncfusion:SfListView.ItemTemplate>
             </syncfusion:SfListView>
+        </Frame>
 
-            <!-- الصف الأخير -->
-            <VerticalStackLayout Grid.Row="2" Padding="10" Spacing="5" Margin="5" FlowDirection="RightToLeft">
-                <Grid Margin="5" ColumnSpacing="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Text="المبلغ قبل الخصم" FontSize="Large"/>
-                    <Label  x:Name="Total" Grid.Row="0" Grid.Column="1"  FontSize="Large"/>
-                    <Label Grid.Row="1" Grid.Column="0" Text="نسبة الخصم" FontSize="Medium"/>
-                    <Label x:Name="Dis" Grid.Row="1" Grid.Column="1"  FontSize="Medium"/>
-                    <Label Grid.Row="2" Grid.Column="0" Text="بعد الخصم" FontSize="Large"/>
-                    <Label x:Name="FinalTotal" Grid.Row="2" Grid.Column="1" FontSize="Large"/>
-                </Grid>
-            </VerticalStackLayout>
+        <Frame Grid.Row="3" BackgroundColor="{AppThemeBinding Light=#e8f4f8, Dark=#2c3e50}"
+               CornerRadius="10" Padding="15" HasShadow="True">
+            <Grid ColumnSpacing="5" RowSpacing="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-            <!-- مؤشر التحميل -->
-            <core:SfBusyIndicator x:Name="busyIndicator"
+                <Label Text="المبلغ قبل الخصم" Grid.Row="0" Grid.Column="1" Style="{StaticResource ItemLabelStyle}"/>
+                <Label x:Name="Total" Grid.Row="0" Grid.Column="0" Style="{StaticResource PriceLabelStyle}"/>
+
+                <Label Text="نسبة الخصم" Grid.Row="1" Grid.Column="1" Style="{StaticResource ItemLabelStyle}"/>
+                <Label x:Name="Dis" Grid.Row="1" Grid.Column="0" Style="{StaticResource ItemLabelStyle}"/>
+
+                <Label Text="بعد الخصم" Grid.Row="2" Grid.Column="1" Style="{StaticResource HeaderLabelStyle}" FontSize="18"/>
+                <Label x:Name="FinalTotal" Grid.Row="2" Grid.Column="0" Style="{StaticResource HeaderLabelStyle}" FontSize="18" TextColor="#27ae60"/>
+            </Grid>
+        </Frame>
+
+        <core:SfBusyIndicator x:Name="busyIndicator"
                               Title="جاري تحميل البيانات ...."
                               TitleSpacing="30"
                               TitlePlacement="Bottom"
-                              IndicatorColor="Blue"
-                              AnimationType="Cupertino"
-                              Grid.Row="1" />
-        </Grid>
-    </ContentPage.Content>
-
+                              IndicatorColor="#3498db"
+                              AnimationType="CircularMaterial"
+                              Grid.RowSpan="4"
+                              BackgroundColor="#80000000"/>
+    </Grid>
 </ContentPage>

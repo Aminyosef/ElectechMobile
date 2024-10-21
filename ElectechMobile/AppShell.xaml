@@ -9,12 +9,12 @@
 
 
     <ShellContent Title = "Home" ContentTemplate = "{DataTemplate local:Views.HomeScreenPage}" Route ="Views.HomeScreenPage"/>
-    <!--<ShellContent Title = "Products Documents" ContentTemplate = "{DataTemplate local:Views.DecumentsPage}" Route ="Views.DecumentsPage" />-->
+    <ShellContent Title = "Products Documents" ContentTemplate = "{DataTemplate local:Views.DecumentsPage}" Route ="Views.DecumentsPage" />
+    <ShellContent Title = "Products Categories" ContentTemplate = "{DataTemplate local:Views.CategoryPage}" Route ="Views.CategoryPage" />
     <ShellContent Title = "Customers" ContentTemplate = "{DataTemplate local:Views.CustListPage}" Route ="Views.CustListPage" />
     <ShellContent Title = "Sales" ContentTemplate = "{DataTemplate local:Views.SalPage}" Route ="Views.SalPage" />
     <ShellContent Title = "Cancelled Sales" ContentTemplate = "{DataTemplate local:Views.CancelledSalesPage}" Route ="Views.CancelledSalesPage" />
     <ShellContent Title = "Sales Engineers" ContentTemplate = "{DataTemplate local:Views.EngineerListPage}" Route ="Views.EngineerListPage" />
-    <ShellContent Title = "Products Categories" ContentTemplate = "{DataTemplate local:Views.CategoryPage}" Route ="Views.CategoryPage" />
 
 
 </Shell>

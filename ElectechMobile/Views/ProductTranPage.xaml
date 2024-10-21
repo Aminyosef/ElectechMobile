@@ -11,9 +11,9 @@
             <VerticalStackLayout Spacing="5">
                 <VerticalStackLayout>
                     <Label x:Name="ProdName" 
-            FontSize="Medium"
+            FontSize="Medium" 
             HorizontalOptions="CenterAndExpand" 
-            Padding="10,5,5,0"/>
+            Padding="10,5,5,0" />
                     <picker:SfDatePicker x:Name="SDatepicker"  HeightRequest="102"
                                          Margin="5">
                         
@@ -29,11 +29,11 @@
                             <picker:PickerHeaderView Text="To :" Height="20"/>
                         </picker:SfDatePicker.HeaderView>
                     </picker:SfDatePicker>
-                    <Button Text="حركة الصنف" Margin="10,0,10,0" CornerRadius="20"/>
+                    <Button x:Name="btnGetProdMotion" Clicked="btnGetProdMotion_Clicked" Text="حركة الصنف" Margin="10,0,10,0" CornerRadius="20"/>
                 </VerticalStackLayout>
                 <syncfusion:SfListView x:Name="listView" 
                       FlowDirection="RightToLeft"
-                      ItemSize="150" 
+                      ItemSize="180" 
                       ItemSpacing="10"
                       Margin="10"
                       SelectionMode="Single"
@@ -45,8 +45,11 @@
                    BorderColor="Black"
                    CornerRadius="6"
                    HasShadow="True">
-                                <Grid Padding="0">
+                                <Grid Padding="0" Margin="5">
                                     <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
@@ -56,62 +59,108 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
-                                    <!-- Product Name -->
-                                    <Label Text="{Binding name}" 
-                           Grid.ColumnSpan="3"
+                                    <!-- date -->
+                                    <Label Text="{Binding date ,StringFormat='{0:yyyy-MM-dd}'}" 
                            FontAttributes="None" 
                            TextColor="Teal" 
-                           FontSize="18"
-                           LineBreakMode="WordWrap"
-                           MaxLines="2"
+                           FontSize="Medium"
                            HorizontalOptions="Fill"
-                           Margin="0,0,30,5"/>
+                                           
+                           Margin="0,0,1,1"/>
 
-                                    <!-- Code Row -->
+                                    <!-- الرصيد -->
                                     <Label Grid.Row="1" 
-                           Grid.Column="0"
-                           Grid.ColumnSpan="3"
-                           Text="{Binding cod}" 
-                           TextColor="Black"
-                           FontSize="12"
-                           LineBreakMode="WordWrap"
-                           MaxLines="0"
+                                Grid.Column="0"
+                                Text="الرصيد" 
+                                TextColor="Red" 
+                                FontSize="Medium"
+                                HorizontalOptions="Start"/>     
+                                     
+                                    <Label Grid.Row="1" 
+                           Grid.Column="1"
+                            TextColor="Red" 
+
+                           Text="{Binding runningBalance}" 
+                           FontSize="Medium"
+                         
                            HorizontalOptions="Fill"
-                           Margin="0,0,0,5" />
+                           Margin="0,0,0,1"/>
 
-                                    <!-- Price Row -->
+                                    <!-- وارد -->
                                     <Label Grid.Row="2" 
                            Grid.Column="0"
-                           Text="السعر" 
-                           TextColor="Red" 
+                           Text="وارد" 
+                           TextColor="Black" 
                            FontSize="15"
                            HorizontalOptions="Start"/>
                                     <Label Grid.Row="2" 
                            Grid.Column="1"
-                           Text="{Binding price}" 
-                           TextColor="Red" 
+                           Text="{Binding qtyIn}" 
+                           TextColor="Black" 
                            FontSize="15"
                            HorizontalOptions="Start"
                            Margin="5,0,10,0"/>
 
-                                    <!-- Stock Row -->
+                                    <!-- منصرف -->
                                     <Label Grid.Row="3" 
                            Grid.Column="0"
-                           Text="المخزون" 
+                           Text="منصرف" 
                            TextColor="Black" 
                            FontSize="15"
                            HorizontalOptions="Start"/>
                                     <Label Grid.Row="3" 
                            Grid.Column="1"
-                           Text="{Binding qty2023}" 
+                           Text="{Binding qtyOut}" 
                            TextColor="Black" 
                            FontSize="15"
                            HorizontalOptions="Start"
                            Margin="5,0,10,0"/>
-                                </Grid>
+                                    <!-- رقم المبيع -->
+                                    <Label Grid.Row="4" 
+                                    Grid.Column="0"
+                                    Text="رقم المبيع" 
+                                    TextColor="Black" 
+                                    FontSize="15"
+                                    HorizontalOptions="Start"/>
+                                    <Label Grid.Row="4" 
+                                    Grid.Column="1"
+                                    Text="{Binding sal_TblId}" 
+                                    TextColor="Black" 
+                                    FontSize="15"
+                                    HorizontalOptions="Start"
+                                    Margin="5,0,10,0"/>
+                                    <!-- رقم الادخال -->
+                                    <Label Grid.Row="5" 
+                                     Grid.Column="0"
+                                     Text="رقم الادخال" 
+                                     TextColor="Black" 
+                                     FontSize="15"
+                                     HorizontalOptions="Start"/>
+                                      <Label Grid.Row="5" 
+                                     Grid.Column="1"
+                                     Text="{Binding buy_TblId}" 
+                                     TextColor="Black" 
+                                     FontSize="15"
+                                     HorizontalOptions="Start"
+                                     Margin="5,0,10,0"/>
+
+                                    <!-- رقم مردود المبيع -->
+                                    <Label Grid.Row="6" 
+                                     Grid.Column="0"
+                                     Text="رقم المرتجع" 
+                                     TextColor="Black" 
+                                     FontSize="15"
+                                     HorizontalOptions="Start"/>
+                                    <Label Grid.Row="6" 
+                                     Grid.Column="1"
+                                     Text="{Binding rsal_TblId}" 
+                                     TextColor="Black" 
+                                     FontSize="15"
+                                     HorizontalOptions="Start"
+                                     Margin="5,0,10,0"/>    
+                                   </Grid>
                             </Frame>
                         </DataTemplate>
                     </syncfusion:SfListView.ItemTemplate>
