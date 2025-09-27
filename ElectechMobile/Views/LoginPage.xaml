@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="ElectechMobile.Views.LoginPage"
+             Title="تسجيل الدخول">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+
+            <Label Text="تسجيل الدخول" 
+                   FontSize="28" 
+                   HorizontalOptions="Center" />
+
+            <Entry x:Name="UserNameEntry"
+                   Placeholder="اسم المستخدم أو البريد الإلكتروني"
+                   Keyboard="Email" />
+
+            <Entry x:Name="PasswordEntry"
+                   Placeholder="كلمة المرور"
+                   IsPassword="True" />
+
+            <Button Text="تسجيل الدخول"
+                    x:Name="LoginButton"
+                    BackgroundColor="#2196F3"
+                    TextColor="White"
+                    Clicked="OnLoginClicked" />
+
+            <ActivityIndicator x:Name="LoadingIndicator"
+                               IsVisible="False"
+                               IsRunning="False"
+                               Color="#2196F3" />
+
+            <Label x:Name="MessageLabel"
+                   TextColor="Red"
+                   HorizontalOptions="Center"
+                   FontSize="14" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
+   
