@@ -4,8 +4,7 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
              xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              x:Class="ElectechMobile.Views.ProductsListPage"
-             Title="Products List"
-             BackgroundColor="#F8F9FA">
+             Title="Products List">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -20,7 +19,7 @@
 
             <!-- تعريف الأنماط -->
             <Style x:Key="CardFrameStyle" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="{StaticResource CardBackgroundColor}" />
+                <!--<Setter Property="BackgroundColor" Value="{StaticResource CardBackgroundColor}" />-->
                 <Setter Property="BorderColor" Value="{StaticResource ShadowColor}" />
                 <Setter Property="CornerRadius" Value="12" />
                 <Setter Property="HasShadow" Value="True" />
@@ -169,7 +168,7 @@
                                  TitlePlacement="Bottom"
                                  IndicatorColor="{StaticResource PrimaryColor}"
                                  AnimationType="Cupertino"
-                                 BackgroundColor="#80000000"/>
+                                 BackgroundColor="Transparent"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
