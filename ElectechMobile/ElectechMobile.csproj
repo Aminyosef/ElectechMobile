@@ -29,6 +29,7 @@
 		<GenerateTestArtifacts>True</GenerateTestArtifacts>
 		<AppInstallerUri>D:\App</AppInstallerUri>
 		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+		<AndroidSigningKeyStore>elc.mobil.com</AndroidSigningKeyStore>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -149,11 +150,21 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
 		<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningStorePass>123456</AndroidSigningStorePass>
+		<AndroidSigningKeyAlias>elc.mobil.com</AndroidSigningKeyAlias>
+		<AndroidSigningKeyPass>123456</AndroidSigningKeyPass>
+		<AndroidApkSignerAdditionalArguments>123456</AndroidApkSignerAdditionalArguments>
 	</PropertyGroup>
 
 	<!-- Release configuration -->
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
 		<AndroidPackageFormat>apk</AndroidPackageFormat>
 		<AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
+		<AndroidKeyStore>True</AndroidKeyStore>
+		<AndroidSigningStorePass>123456</AndroidSigningStorePass>
+		<AndroidSigningKeyAlias>elc.mobil.com</AndroidSigningKeyAlias>
+		<AndroidSigningKeyPass>123456</AndroidSigningKeyPass>
+		<AndroidApkSignerAdditionalArguments>123456</AndroidApkSignerAdditionalArguments>
 	</PropertyGroup>
 </Project>
